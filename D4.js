@@ -60,9 +60,16 @@ console.log(boundary(400));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-const epify = function () {
-  const corso = EPICODE;
+
+const epify = function (stringa) {
+  if (stringa.indexOf("EPICODE") === 0) {
+    return stringa;
+  } else {
+    return "EPICODE" + stringa;
+  }
 };
+
+console.log(epify("EPICODE CIAO A TUTTI"));
 
 /* ESERCIZIO 6
  Scrivi una funzione di nome "check3and7" che accetta un numero positivo come parametro. La funzione deve controllare che il parametro sia un multiplo
@@ -90,7 +97,18 @@ console.log(check3and7(-3));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-const reverseString = function () {};
+const reverseString = function () {
+  const stringa = "EPICODE";
+
+  let nuovaStringa = "";
+
+  for (let i = stringa.length - 1; i >= 0; i--) {
+    nuovaStringa = nuovaStringa.concat(stringa[i]);
+  }
+
+  return nuovaStringa;
+};
+console.log(reverseString());
 
 /* ESERCIZIO 8
  Scrivi una funzione di nome "upperFirst", che riceve come parametro una stringa formata da diverse parole.
@@ -98,7 +116,23 @@ const reverseString = function () {};
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-const uppperFirst = function () {};
+const upperFirst = function (stringa) {
+  // Ciao a tutti
+  let nuovoarray = stringa.split(" "); // nuovoArray[0] = "Ciao", nuovoArray[1] = "a", nuovoArray[2] = "tutti"
+  let nuovaStringa = "";
+
+  for (let i = 0; i < nuovoarray.length; i++) {
+    nuovoarray[i] = nuovoarray[i].replace(
+      nuovoarray[i].charAt(0),
+      nuovoarray[i].charAt(0).toUpperCase()
+    );
+
+    nuovaStringa = nuovaStringa.concat(nuovoarray[i]);
+  }
+
+  return nuovaStringa;
+};
+console.log(upperFirst("ciao a  tutti"));
 
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
@@ -106,11 +140,21 @@ const uppperFirst = function () {};
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-const cutString = function () {};
+const cutString = function (stringa) {
+  return stringa.slice(1, stringa.length - 1);
+};
+console.log(cutString("EPICODE"));
 
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-const giveMeRandom = function () {};
+const giveMeRandom = function (n1) {
+  const array1 = [];
+  for (let i = 0; i < n1; i++) {
+    array1.push(Math.floor(Math.random() * 10));
+  }
+  return array1;
+};
+console.log(giveMeRandom(3));
